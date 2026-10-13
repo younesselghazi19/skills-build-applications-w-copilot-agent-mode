@@ -1,0 +1,73 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #183a37;
+  background: #f6f8f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f6f8f5;
+}
+
+.app-navbar {
+  background: #183a37;
+}
+
+.app-navbar .nav-link,
+.navbar-brand {
+  color: #f6f8f5;
+}
+
+.app-navbar .nav-link.active,
+.app-navbar .nav-link:hover {
+  color: #b7e4c7;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: #f6f8f5;
+  background: linear-gradient(125deg, #183a37, #26715d);
+}
+
+.brand-logo {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
+.explore-card,
+.resource-card {
+  border-color: #dce7df;
+  color: #183a37;
+}
+
+.explore-card:hover {
+  border-color: #26715d;
+  box-shadow: 0 0.5rem 1.25rem rgb(24 58 55 / 10%);
+}
+
+.page-heading {
+  color: #183a37;
+}
+
+.page-heading p {
+  color: #26715d;
+}
+
+@media (max-width: 575.98px) {
+  .home-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brand-logo {
+    width: 4rem;
+    height: 4rem;
+  }
+}
