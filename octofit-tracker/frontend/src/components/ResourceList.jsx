@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { fetchResources } from '../api.js';
 
-export default function ResourceList({ title, resource, renderItem }) {
+export default function ResourceList({ title, resource, endpoint, fetch, renderItem }) {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -9,7 +8,7 @@ export default function ResourceList({ title, resource, renderItem }) {
   useEffect(() => {
     const controller = new AbortController();
 
-    fetchResources(resource, controller.signal)
+    fetch(endpoint, controller.signal)
       .then(setItems)
       .catch((loadError) => {
         if (loadError.name !== 'AbortError') {
@@ -23,7 +22,7 @@ export default function ResourceList({ title, resource, renderItem }) {
       });
 
     return () => controller.abort();
-  }, [resource]);
+  }, [endpoint, fetch]);
 
   return (
     <main className="container py-5">

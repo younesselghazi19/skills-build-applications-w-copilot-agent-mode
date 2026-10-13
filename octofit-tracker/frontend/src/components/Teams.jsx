@@ -1,10 +1,13 @@
 import ResourceList from './ResourceList.jsx';
+import { fetchResources as fetch } from '../api.js';
 
 export default function Teams() {
   return (
     <ResourceList
       title="Teams"
       resource="teams"
+      endpoint="/api/teams/"
+      fetch={fetch}
       renderItem={(team) => (
         <>
           <h2 className="h5 card-title">{team.name ?? 'Team'}</h2>

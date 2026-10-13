@@ -1,4 +1,5 @@
 import ResourceList from './ResourceList.jsx';
+import { fetchResources as fetch } from '../api.js';
 
 function referenceName(reference) {
   if (reference && typeof reference === 'object') {
@@ -12,6 +13,8 @@ export default function Leaderboard() {
     <ResourceList
       title="Leaderboard"
       resource="leaderboard"
+      endpoint="/api/leaderboard/"
+      fetch={fetch}
       renderItem={(entry) => (
         <>
           <h2 className="h5 card-title">{referenceName(entry.user)}</h2>

@@ -19,10 +19,10 @@ function getResourceArray(payload) {
   throw new TypeError('The API response did not contain a resource list.');
 }
 
-export async function fetchResources(resource, signal) {
-  const response = await fetch(`${apiBaseUrl}/api/${resource}/`, { signal });
+export async function fetchResources(endpoint, signal) {
+  const response = await fetch(`${apiBaseUrl}${endpoint}`, { signal });
   if (!response.ok) {
-    throw new Error(`Unable to load ${resource} (HTTP ${response.status}).`);
+    throw new Error(`Unable to load ${endpoint} (HTTP ${response.status}).`);
   }
 
   return getResourceArray(await response.json());
